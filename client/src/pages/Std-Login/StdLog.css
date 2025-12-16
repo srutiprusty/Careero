@@ -1,0 +1,58 @@
+#stdlog .yellow-gradient {
+  opacity: 0.5;
+}
+
+.stdlog-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.stdlog-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+}
+
+.stdlog-container .sec {
+  border: none;
+  outline: none;
+}
+
+.stdlog-page > .stdlog-container > .sec > .head-sec {
+  font-size: 35px;
+  text-align: start;
+  font-weight: 700;
+  margin-left: 5%;
+}
+
+@media (max-width: 768px) {
+  .stdlog-container {
+    flex-direction: column;
+    /*  margin-bottom: 20px; */
+  }
+
+  .stdlog-page {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .stdlog-page > .stdlog-container > #studentsec {
+    margin-top: 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stdlog-container {
+    justify-content: center;
+    padding: 10px;
+  }
+  .globe-wrapper {
+    display: none;
+  }
+}

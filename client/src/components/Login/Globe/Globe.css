@@ -1,0 +1,49 @@
+/* .globe-container {
+  position: fixed;
+  bottom: 0;
+  top: 60%;
+  left: 50%;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.globe-canvas {
+  width: 100%;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.globe-container,
+canvas {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+ */
+.globe-container {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  z-index: 1;
+  object-fit: contain;
+  z-index: 1000;
+}
+
+.globe canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.globe-container,
+canvas {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}

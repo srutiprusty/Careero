@@ -1,0 +1,39 @@
+/* Main container */
+.jobs-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Flex container */
+.jobs-flex {
+    display: flex;
+    gap: 20px;
+}
+
+/* Filter card wrapper */
+.filter-card-wrapper {
+    width: 20%;
+}
+
+/* Message when no jobs are found */
+.no-jobs-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+}
+
+/* Jobs list container */
+.jobs-list {
+    flex: 1;
+    height: 88vh;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+/* Grid for job cards */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}

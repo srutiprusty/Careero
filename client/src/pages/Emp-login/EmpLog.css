@@ -1,0 +1,91 @@
+#emplog .yellow-gradient {
+  opacity: 0.5;
+}
+
+.emplog-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.emplog-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+}
+
+.emplog-page > .emplog-container > .sec > .head-sec {
+  font-size: 35px;
+  text-align: start;
+  margin-top: -30%;
+  font-weight: 700;
+  margin-left: 5%;
+}
+
+.emplog-page > .emplog-container > .sec {
+  width: 100%;
+}
+
+.para-sec {
+  color: dimgray;
+}
+
+.globe-wrapper {
+  position: absolute;
+  top: -25px;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .emplog-container {
+    flex-direction: column;
+  }
+
+  .emplog-page {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .emplog-page > .emplog-container > #employersec2 {
+    justify-content: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .emplog-container {
+    justify-content: center;
+  }
+  .globe-wrapper {
+    display: none;
+  }
+}
+
+/* Default order (large screens) */
+#employersec {
+  order: 1;
+} /* Form */
+#employersec2 {
+  order: 2;
+} /* Heading */
+
+/* On small screens – reverse order */
+@media (max-width: 768px) {
+  #employersec {
+    order: 2;
+  } /* Form second */
+  #employersec2 {
+    margin-top: 20%;
+    order: 1; /* Heading first */
+    text-align: center; /* Optional: looks cleaner on mobile */
+  }
+
+  /* Hide globe */
+  .globe-container {
+    display: none !important;
+  }
+}

@@ -1,0 +1,174 @@
+.outer-container{
+    /* border: 2px solid black; */
+    /* background-color: brown; */
+    height: 1000px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.inner-conatiner{
+    /* border: 2px solid black;
+    background-color: blue; */
+    height: 800px;
+    align-self: center;
+    display: grid;
+    align-items: center;
+    row-gap: 10px;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:80px 280px 80px 280px 80px
+    
+}
+.card{
+    height: 350px;
+    width: 350px;
+    border: 2px solid gray;
+    border-radius: 30px;
+    box-shadow: 2px 1px 1px 2px gray;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    text-align: center;
+    overflow: hidden;
+}
+.card-image{
+    width: 100%;
+    grid-row: 1/2;
+    background-size: cover;
+    object-fit: cover;
+  /*   z-index:-1; */
+    background-color: rgb(255, 217, 0);
+}
+.card-text{
+    margin: 0%;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color:rgba(39, 19, 59, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 1;
+    
+}
+.card01{
+    grid-row: 1/3;
+}
+.card03{
+    grid-row: 3/5;
+}
+.card02{
+    grid-row: 2/4;
+}
+.card04{
+    grid-row: 4/6;
+}
+.image-potential{
+    align-self:center;
+    justify-self: center;
+}
+.potentia-picture{
+    object-fit: cover;
+    height: 800px;
+}
+.find-mentor{
+    position: absolute;
+    width:25%;
+    height: 14%;
+    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    top: 5%;
+    right: 1%;
+    border-radius: 50px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color:white;
+    box-shadow: 2px 2px 5px 1px grey ;
+    cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.find-mentor:hover{
+    background-color: #252727;
+    transform: scale(1.01);
+color: #ffffff;
+}
+.mentorship-container-image{
+    margin-top: 3%;
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    height: 520px; /* Adjust the height as needed */
+    background-image: url("../../../../public/images/mentorship\ section.png"); /* Replace with the path to your image */
+    background-size: cover;
+    /* border: 2px solid black; */
+    background-position: center;
+    border-radius: 10px; /* Optional, for rounded corners */
+    overflow: hidden;
+  }
+
+.resources-container-image{
+    /* padding-top:3%; */
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    height: 800px; /* Adjust the height as needed */
+    background-image: url("../../../../public/images/Resoucres\ section.png"); /* Replace with the path to your image */
+    background-size: cover;
+    /* border: 2px solid black; */
+    background-position: center;
+    border-radius: 10px; /* Optional, for rounded corners */
+    overflow: hidden;
+  }
+.resources-content{
+    border: 2px solid gray;
+    display:grid;
+    grid-template-rows: 80% 20%;
+    border-radius: 20px;
+    z-index: 1;
+    width: 40%;
+    height: 35%;
+    position: absolute;
+    top:30%;
+    right: 4%;
+    box-shadow: 5px 7px 9px 2px grey;
+}
+.find-resources{
+    justify-self: center;
+    height: 100%;
+    width: 50%;
+    background-color:white;
+    box-shadow: 2px 2px 5px 1px grey ;
+    border-radius: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 3%;
+    margin-top: -4%;
+    cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.find-resources:hover{
+    background-color: #252727;
+    transform: scale(1.01);
+color: #ffffff;
+}
+.resources-text{
+    align-self: center;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: xx-large;
+    padding: 10%;
+}
+.city-footer-image-conainer{
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    background-image: url("../../../../public/images/Untitled\ design\ 2.png"); /* Replace with the path to your image */
+    background-size: cover;
+    /* border: 2px solid black; */
+    background-position: center;
+     /* Optional, for rounded corners */
+    overflow: hidden;
+    padding-bottom: 10%;
+}

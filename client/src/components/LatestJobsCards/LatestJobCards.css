@@ -1,0 +1,68 @@
+/* Card container styles */
+.latest-job-card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.latest-job-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Company and location styles */
+.company-name {
+    font-weight: 500;
+    font-size: 1.125rem; /* 18px */
+    color: #1f2937;
+}
+
+.location {
+    font-size: 0.875rem; /* 14px */
+    color: #6b7280;
+}
+
+/* Job title and description */
+.job-title {
+    font-weight: 700;
+    font-size: 1.125rem; /* 18px */
+    margin: 10px 0;
+    color: #111827;
+}
+
+.job-description {
+    font-size: 0.875rem; /* 14px */
+    color: #4b5563;
+}
+
+/* Info container and individual info styles */
+.info-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.info {
+    font-weight: bold;
+    font-size: 0.875rem; /* 14px */
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.blue-info {
+    color: #1d4ed8;
+}
+
+.red-info {
+    color: #f83002;
+}
+
+.purple-info {
+    color: #7209b7;
+}

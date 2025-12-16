@@ -1,0 +1,104 @@
+/* Job Card Container */
+.jobcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Job Card */
+  .jobcard {
+    max-width: 350px;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Logo Section */
+  .jobcard-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logo-initial {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #facc15; /* Yellow */
+  }
+  
+  .company-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  /* Job Title */
+  .jobcard-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Stats Section */
+  .jobcard-stats {
+    color: #9ca3af; /* Gray */
+    font-size: 0.875rem;
+    display: flex;
+    gap: 0.7rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  
+  .stats-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stats-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.25rem;
+  }
+  
+  /* Apply Button */
+  
+  .apply-button {
+ 
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 0.75rem 0;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .apply-button:hover {
+    background-color: #4b5563; /* Dark Gray */
+    color: white;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 640px) {
+    .jobcard {
+      padding: 1.5rem;
+    }
+  
+    .jobcard-title {
+      font-size: 1.25rem;
+    }
+  
+    .jobcard-stats {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .stats-item {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
