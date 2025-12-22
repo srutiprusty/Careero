@@ -18,6 +18,7 @@ import {
   TrendingUp,
   CheckCircle2,
   ArrowLeft,
+  Star,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import JobHeader from "./JobHeader/JobHeader";
@@ -191,131 +192,63 @@ const JobDescription = () => {
               </div>
             </div>
 
-            {/* Job Description */}
+            {/* Job Description with All Job Details */}
             <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-100">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <div className="h-1 w-8 bg-purple-600 rounded"></div>
                 Job Description
               </h2>
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {singleJob?.description}
-              </p>
-            </div>
 
-            {/* Requirements */}
-            {singleJob?.requirements && singleJob.requirements.length > 0 && (
-              <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="h-1 w-8 bg-purple-600 rounded"></div>
-                  Requirements
-                </h2>
-                <ul className="space-y-2">
-                  {singleJob.requirements.map((req, index) => (
-                    <li
-                      key={index}
-                      className="flex items-start gap-3 text-gray-700"
-                    >
-                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span>{req}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Description Text */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {singleJob?.description || "No description available."}
+                </p>
               </div>
-            )}
 
-            {/* Company Info */}
-            {singleJob?.company && (
-              <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="h-1 w-8 bg-purple-600 rounded"></div>
-                  About the Company
-                </h2>
-                <div className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    {singleJob.company.description ||
-                      "No description available"}
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                    {singleJob.company.location && (
-                      <div className="flex items-center gap-3">
-                        <div className="bg-purple-100 p-2 rounded-lg">
-                          <MapPin className="h-5 w-5 text-purple-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">Location</p>
-                          <p className="font-semibold text-gray-900">
-                            {singleJob.company.location}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    {singleJob.company.employeeCount && (
-                      <div className="flex items-center gap-3">
-                        <div className="bg-blue-100 p-2 rounded-lg">
-                          <Users className="h-5 w-5 text-blue-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">Company Size</p>
-                          <p className="font-semibold text-gray-900">
-                            {singleJob.company.employeeCount} employees
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    {singleJob.company.website && (
-                      <div className="flex items-center gap-3">
-                        <div className="bg-green-100 p-2 rounded-lg">
-                          <Globe className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">Website</p>
-                          <a
-                            href={singleJob.company.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-semibold text-blue-600 hover:underline"
-                          >
-                            Visit Website
-                          </a>
-                        </div>
-                      </div>
-                    )}
-
-                    {singleJob.company.ratings && (
-                      <div className="flex items-center gap-3">
-                        <div className="bg-yellow-100 p-2 rounded-lg">
-                          <TrendingUp className="h-5 w-5 text-yellow-600" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">Rating</p>
-                          <p className="font-semibold text-gray-900">
-                            {singleJob.company.ratings}/5
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-6 space-y-6">
-              {/* Quick Info Card */}
-              <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                <h3 className="font-bold text-gray-900 mb-4">Job Overview</h3>
-                <div className="space-y-4">
+              {/* Job Details Grid */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Job Details
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Role */}
                   <div className="flex items-start gap-3">
                     <div className="bg-purple-100 p-2 rounded-lg">
-                      <DollarSign className="h-5 w-5 text-purple-600" />
+                      <Briefcase className="h-5 w-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">Salary</p>
+                      <p className="text-xs text-gray-500 font-medium">Role</p>
+                      <p className="font-semibold text-gray-900">
+                        {singleJob?.title || "N/A"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-start gap-3">
+                    <div className="bg-blue-100 p-2 rounded-lg">
+                      <MapPin className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Location
+                      </p>
+                      <p className="font-semibold text-gray-900">
+                        {singleJob?.location || "Work from Home"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Salary */}
+                  <div className="flex items-start gap-3">
+                    <div className="bg-green-100 p-2 rounded-lg">
+                      <DollarSign className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Salary
+                      </p>
                       <p className="font-semibold text-gray-900">
                         {formatSalary(
                           singleJob?.salaryMin,
@@ -326,45 +259,227 @@ const JobDescription = () => {
                     </div>
                   </div>
 
+                  {/* Experience Level */}
                   <div className="flex items-start gap-3">
-                    <div className="bg-blue-100 p-2 rounded-lg">
-                      <TrendingUp className="h-5 w-5 text-blue-600" />
+                    <div className="bg-orange-100 p-2 rounded-lg">
+                      <TrendingUp className="h-5 w-5 text-orange-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">Experience</p>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Experience Level
+                      </p>
                       <p className="font-semibold text-gray-900">
                         {singleJob?.experienceLevel || "N/A"}
                       </p>
                     </div>
                   </div>
 
+                  {/* Duration */}
                   <div className="flex items-start gap-3">
-                    <div className="bg-orange-100 p-2 rounded-lg">
-                      <Clock className="h-5 w-5 text-orange-600" />
+                    <div className="bg-yellow-100 p-2 rounded-lg">
+                      <Clock className="h-5 w-5 text-yellow-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">Duration</p>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Duration
+                      </p>
                       <p className="font-semibold text-gray-900">
                         {singleJob?.duration || "N/A"}
                       </p>
                     </div>
                   </div>
 
+                  {/* Total Applicants */}
                   <div className="flex items-start gap-3">
-                    <div className="bg-green-100 p-2 rounded-lg">
-                      <Users className="h-5 w-5 text-green-600" />
+                    <div className="bg-indigo-100 p-2 rounded-lg">
+                      <Users className="h-5 w-5 text-indigo-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500">Applicants</p>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Total Applicants
+                      </p>
                       <p className="font-semibold text-gray-900">
                         {singleJob?.applications?.length || 0} applied
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Job Type */}
+                  <div className="flex items-start gap-3">
+                    <div className="bg-pink-100 p-2 rounded-lg">
+                      <Briefcase className="h-5 w-5 text-pink-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Job Type
+                      </p>
+                      <p className="font-semibold text-gray-900">
+                        {singleJob?.jobType || "N/A"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Work Mode */}
+                  <div className="flex items-start gap-3">
+                    <div className="bg-cyan-100 p-2 rounded-lg">
+                      <Clock className="h-5 w-5 text-cyan-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 font-medium">
+                        Work Mode
+                      </p>
+                      <p className="font-semibold text-gray-900">
+                        {singleJob?.workMode || "N/A"}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Apply Button - Mobile/Tablet Sticky */}
+              {/* Requirements */}
+              {singleJob?.requirements && singleJob.requirements.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Requirements
+                  </h3>
+                  <ul className="space-y-2">
+                    {singleJob.requirements.map((req, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-3 text-gray-700"
+                      >
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>{req}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Posted Date */}
+              <div className="flex items-center gap-2 pt-6 border-t border-gray-200">
+                <Calendar className="h-4 w-4 text-gray-500" />
+                <p className="text-sm text-gray-600">
+                  Posted on{" "}
+                  <span className="font-semibold">
+                    {singleJob?.createdAt
+                      ? new Date(singleJob.createdAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }
+                        )
+                      : "N/A"}
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar - Company Details */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-6 space-y-6">
+              {/* Company Info Card */}
+              {singleJob?.company && (
+                <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                  <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Building2 className="h-5 w-5 text-purple-600" />
+                    About the Company
+                  </h3>
+
+                  {/* Company Name */}
+                  <div className="mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      {singleJob.company.companyName || "N/A"}
+                    </h4>
+                    {singleJob.company.description && (
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {singleJob.company.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Company Details */}
+                  <div className="space-y-4">
+                    {/* Company Location */}
+                    {singleJob.company.location && (
+                      <div className="flex items-start gap-3">
+                        <div className="bg-purple-100 p-2 rounded-lg">
+                          <MapPin className="h-5 w-5 text-purple-600" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Location
+                          </p>
+                          <p className="font-semibold text-gray-900">
+                            {singleJob.company.location}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Employee Count */}
+                    {singleJob.company.employeeCount && (
+                      <div className="flex items-start gap-3">
+                        <div className="bg-blue-100 p-2 rounded-lg">
+                          <Users className="h-5 w-5 text-blue-600" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Company Size
+                          </p>
+                          <p className="font-semibold text-gray-900">
+                            {singleJob.company.employeeCount}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Company Website */}
+                    {singleJob.company.website && (
+                      <div className="flex items-start gap-3">
+                        <div className="bg-green-100 p-2 rounded-lg">
+                          <Globe className="h-5 w-5 text-green-600" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Website
+                          </p>
+                          <a
+                            href={singleJob.company.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-blue-600 hover:underline text-sm break-all"
+                          >
+                            Visit Website
+                          </a>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Company Rating */}
+                    {singleJob.company.ratings && (
+                      <div className="flex items-start gap-3">
+                        <div className="bg-yellow-100 p-2 rounded-lg">
+                          <Star className="h-5 w-5 text-yellow-600 fill-yellow-600" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium">
+                            Rating
+                          </p>
+                          <p className="font-semibold text-gray-900">
+                            {singleJob.company.ratings}/5
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Apply Button - Sidebar */}
               <div className="sm:hidden lg:block">
                 <button
                   onClick={isApplied ? null : applyJobHandler}

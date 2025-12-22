@@ -97,6 +97,11 @@ const JobHeader = () => {
               </li>
               <li className="flex items-center">
                 <Popover>
+                  <PopoverTrigger asChild>
+                    <button className="cursor-pointer hover:text-purple-600 transition-colors duration-300">
+                      <User2 className="w-6 h-6" />
+                    </button>
+                  </PopoverTrigger>
                   <PopoverContent className="w-auto my-2">
                     <div className="flex gap-3">
                       <Avatar className="cursor-pointer">
@@ -166,12 +171,12 @@ const JobHeader = () => {
                   </PopoverTrigger>
                   <PopoverContent className="w-auto my-2">
                     <div className="flex gap-3">
-                      <Avatar className="cursor-pointer">
+                      {/*  <Avatar className="cursor-pointer">
                         <AvatarImage
                           src={user?.profile?.profilePhoto}
                           alt="Profile"
                         />
-                      </Avatar>
+                      </Avatar> */}
 
                       <div className="flex flex-col justify-center text-gray-600">
                         {user && user.role === "student" && (
@@ -200,7 +205,7 @@ const JobHeader = () => {
             </>
           )}
 
-          {user && (
+          {/*   {user && (
             <li className="flex items-center">
               <Popover>
                 <PopoverTrigger asChild>
@@ -241,7 +246,7 @@ const JobHeader = () => {
                 </PopoverContent>
               </Popover>
             </li>
-          )}
+          )} */}
         </ul>
 
         {/* Mobile Navigation Dropdown */}
