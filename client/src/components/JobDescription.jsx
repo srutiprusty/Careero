@@ -150,7 +150,7 @@ const JobDescription = () => {
           <h1 className="font-bold my-1">
             Company:{" "}
             <span className="pl-4 font-normal text-gray-800">
-              {singleJob?.company?.name || "N/A"}
+              {singleJob?.company?.companyName || "N/A"}
             </span>
           </h1>
           {singleJob?.company && (
