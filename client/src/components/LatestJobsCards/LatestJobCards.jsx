@@ -20,8 +20,12 @@ const LatestJobCards = ({ job }) => {
     >
       {/* Company Info */}
       <div>
-        <h1 className="font-medium text-lg truncate">{job?.company?.name}</h1>
-        <p className="text-sm text-gray-500 truncate">India</p>
+        <h1 className="font-medium text-lg truncate">
+          {job?.company?.companyName}
+        </h1>
+        <p className="text-sm text-gray-500 truncate">
+          {job?.company?.location}
+        </p>
       </div>
 
       {/* Job Title and Description */}
@@ -39,7 +43,7 @@ const LatestJobCards = ({ job }) => {
           {job?.jobType}
         </Badge>
         <Badge className="text-[#7209b7] font-bold" variant="ghost">
-          {job?.salary} LPA
+          {job?.workMode}
         </Badge>
       </div>
     </div>

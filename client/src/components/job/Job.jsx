@@ -20,7 +20,7 @@ const Job = ({ job }) => {
   return (
     <div className="p-5 rounded-lg shadow-md bg-white border border-gray-200 hover:shadow-xl hover:border-purple-300 transition-all duration-300">
       {/* Header with timestamp */}
-      <div className="flex  justify-between  mb-1">
+      <div className="flex justify-start mb-2">
         <p
           className={`text-xs font-medium px-2.5 py-1 rounded-full ${
             daysAgo === 0

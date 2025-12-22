@@ -56,7 +56,7 @@ const SignUp = () => {
         {/* Decorative gradients */}
         <div className="yellow-gradient"></div>
         {/* Form Container */}
-        <div className="relative w-full max-w-md">
+        <div className="relative w-full max-w-md z-10">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-100">
             <form className="space-y-5" onSubmit={handleSignup}>
               {/* Header */}
@@ -73,7 +73,7 @@ const SignUp = () => {
               <div>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
+                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   placeholder="Full Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -85,7 +85,7 @@ const SignUp = () => {
               <div>
                 <input
                   type="email"
-                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
+                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   placeholder="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -97,7 +97,7 @@ const SignUp = () => {
               <div>
                 <input
                   type="password"
-                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
+                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -108,7 +108,7 @@ const SignUp = () => {
               {/* Role Select */}
               <div>
                 <select
-                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base text-gray-700"
+                  className="w-full px-4 py-3 sm:py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base text-gray-700"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
                   required
@@ -125,7 +125,7 @@ const SignUp = () => {
                   Already have an account?{" "}
                   <NavLink
                     to="/login"
-                    className="text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                    className="text-purple-600 font-semibold hover:text-purple-700 transition-colors"
                   >
                     Sign in
                   </NavLink>

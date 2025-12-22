@@ -31,6 +31,17 @@
   margin-left: 5%;
 }
 
+.sec {
+  width: 48%;
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.sec:hover {
+  transform: translateY(-5px);
+}
 @media (max-width: 768px) {
   .stdlog-container {
     flex-direction: column;

@@ -54,14 +54,14 @@ const JobPg = () => {
       <CategoryCarousel />
 
       {/* Featured jobs header */}
-      <div className="relative flex items-center justify-center w-full px-4 mt-8">
-        <h2 className="text-2xl font-bold text-gray-700">
+      <div className="relative flex flex-col gap-2 md:flex-row items-center w-full px-12 mt-8">
+        <h2 className="flex-1 text-center text-2xl font-bold text-gray-700">
           Latest Job Openings
         </h2>
 
         <button
           onClick={() => navigate("/jobs")}
-          className=" flex items-center justify-center 
+          className="flex items-center justify-center
                      w-20 h-10 bg-white text-black rounded-[20px]
                      shadow-lg transition-all duration-300 hover:bg-gray-200"
         >
@@ -82,8 +82,6 @@ const JobPg = () => {
         {/* Cards rendered inside LatestJobs */}
       </div>
       <LatestJobs />
-
-
 
       <div className="relative px-6 md:px-8  max-w-[1460px] pt-[100px]">
         {/* Background Image */}
@@ -116,7 +114,6 @@ const JobPg = () => {
           className="w-full h-auto object-cover"
         />
       </div>
-
 
       {/* Footer wrapper */}
       <div className="jobpg">

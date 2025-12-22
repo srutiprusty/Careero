@@ -92,9 +92,9 @@ const Navbar = () => {
                     offset={-100}
                     duration={800}
                     onSetActive={() => setActiveSection(link.id)}
-                    className={`relative cursor-pointer font-semibold text-base xl:text-lg transition-colors duration-300 ${
+                    className={`relative cursor-pointer font-semibold text-base xl:text-lg transition-colors duration-300 hover:no-underline ${
                       activeSection === link.id
-                        ? "text-purple-700"
+                        ? "text-purple-700 "
                         : "text-gray-700 hover:text-purple-700"
                     } group`}
                   >
