@@ -101,10 +101,19 @@ const FilterCard = () => {
   }, [allJobs]);
 
   const toggleAccordion = (filterType) => {
-    setOpenAccordions((prev) => ({
-      ...prev,
-      [filterType]: !prev[filterType],
-    }));
+    setOpenAccordions((prev) => {
+      // If clicking on an already open accordion, close it
+      if (prev[filterType]) {
+        return {
+          ...prev,
+          [filterType]: false,
+        };
+      }
+      // Otherwise, close all and open only the clicked one
+      return {
+        [filterType]: true,
+      };
+    });
   };
 
   const handleCheckboxChange = (filterType, value, checked) => {
