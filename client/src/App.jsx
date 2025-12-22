@@ -7,14 +7,11 @@ import EmpLog from "./pages/Emp-login/EmpLog";
 import StdLog from "./pages/Std-Login/StdLog";
 import Landing from "./components/Landing/Landing";
 import SignUp from "./components/SignUp/SignUp";
-// chutiye is page ko hatana hai
-import SeekHm from "./pages/JobSeeker/SeekerHome/SeekHm";
 import JobPg from "./pages/JobSeeker/JobPg/JobPg";
 import Jobs from "./components/Jobs/Jobs";
 import Profile from "./components/Profile";
 import JobDescription from "./components/JobDescription";
 import Job from "./components/job/Job";
-import Companies from "./pages/Provider/Companies";
 import CompanyCreate from "./pages/Provider/CompanyCreate";
 import EditCompany from "./pages/Provider/EditCompany";
 import CompanyPage from "./pages/Provider/CompanyPage";
@@ -43,12 +40,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/emplogin" element={<EmpLog />} />
         <Route path="/stdlogin" element={<StdLog />} />
-        <Route path="/jobseeker" element={<SeekHm />} />
         <Route path="/jobpg" element={<JobPg />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/jobs/:id" element={<JobDescription />} />
@@ -57,7 +52,8 @@ function App() {
         <Route path="/browse" element={<Browse />} />
         <Route path="/resources" element={<ResourcesHm />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/test-series" element={<ExamSection />} />
+        {/*         <Route path="/test-series" element={<ExamSection />} />
+         */}{" "}
         <Route path="/roadmaps" element={<Roadmap />} />
         <Route path="/frontend" element={<FrontedRoadmap />} />
         <Route path="/verify/:token" element={<EmailVerification />} />
@@ -66,14 +62,6 @@ function App() {
         <Route path="/interview" element={<Interview />} />
         <Route path="/resume-analyzer" element={<ResumeAna />} />
         {/* provider */}
-        <Route
-          path="/admin/companies"
-          element={
-            <ProtectedRoute>
-              <Companies />
-            </ProtectedRoute>
-          }
-        />
         <Route
           path="/admin/companies/create"
           element={

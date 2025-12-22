@@ -38,7 +38,7 @@ const Profile = () => {
           </div>
           <button
             onClick={() => setOpen(true)}
-            className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none"
+            className="p-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 focus:outline-none"
           >
             <Pen size={20} />
           </button>
@@ -60,7 +60,7 @@ const Profile = () => {
           <div className="flex flex-wrap gap-2">
             {user?.profile?.skills?.length ? (
               user?.profile?.skills.map((item, index) => (
-                <Badge key={index} className="bg-blue-100 text-blue-800">
+                <Badge key={index} className="bg-purple-100 text-purple-800">
                   {item}
                 </Badge>
               ))
@@ -77,7 +77,7 @@ const Profile = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={user?.profile?.resume}
-              className="text-blue-500 hover:underline"
+              className="text-purple-500 hover:underline"
             >
               {user?.profile?.resumeOriginalName || "Download Resume"}
             </a>
