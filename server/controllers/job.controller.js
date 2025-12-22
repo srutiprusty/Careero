@@ -173,7 +173,6 @@ export const updateJob = async (req, res) => {
       !requirements ||
       !salaryMin ||
       !salaryMax ||
-      !location ||
       !workMode ||
       !jobType ||
       !duration ||
