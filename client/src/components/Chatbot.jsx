@@ -78,52 +78,51 @@ const Chatbot = () => {
     <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end ">
       {/* Chat Button */}
 
-      {!open &&(
-
-      <div className="relative">
-        <div
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-700 to-purple-900 text-white flex items-center justify-center shadow-lg cursor-pointer"
-          onClick={() => {
-            setOpen((v) => {
-              const nv = !v;
-              if (nv) setUnread(false);
-              return nv;
-            });
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
+      {!open && (
+        <div className="relative">
+          <div
+            className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-700 to-purple-900 text-white flex items-center justify-center shadow-lg cursor-pointer"
+            onClick={() => {
+              setOpen((v) => {
+                const nv = !v;
+                if (nv) setUnread(false);
+                return nv;
+              });
+            }}
           >
-            <rect x="5" y="6" width="14" height="14" rx="3" fill="white" />
-            <circle cx="12" cy="3" r="1.5" fill="white" />
-            <line
-              x1="12"
-              y1="4.5"
-              x2="12"
-              y2="6"
-              stroke="white"
-              strokeWidth="2"
-            />
-            <circle cx="9" cy="11" r="1.5" fill="#7C3AED" />
-            <circle cx="15" cy="11" r="1.5" fill="#7C3AED" />
-            <path
-              d="M8 15h8"
-              stroke="#7C3AED"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <rect x="2" y="12" width="2" height="3" rx="1" fill="white" />
-            <rect x="20" y="12" width="2" height="3" rx="1" fill="white" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <rect x="5" y="6" width="14" height="14" rx="3" fill="white" />
+              <circle cx="12" cy="3" r="1.5" fill="white" />
+              <line
+                x1="12"
+                y1="4.5"
+                x2="12"
+                y2="6"
+                stroke="white"
+                strokeWidth="2"
+              />
+              <circle cx="9" cy="11" r="1.5" fill="#7C3AED" />
+              <circle cx="15" cy="11" r="1.5" fill="#7C3AED" />
+              <path
+                d="M8 15h8"
+                stroke="#7C3AED"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <rect x="2" y="12" width="2" height="3" rx="1" fill="white" />
+              <rect x="20" y="12" width="2" height="3" rx="1" fill="white" />
+            </svg>
+          </div>
+          {unread && (
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full ring-2 ring-white" />
+          )}
         </div>
-        {unread && (
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full ring-2 ring-white" />
-        )}
-      </div>
       )}
 
       {/* Chat Window */}
@@ -148,7 +147,7 @@ const Chatbot = () => {
                 }`}
               >
                 <div
-                  className={`p-2 rounded-lg max-w-[80%] text-sm ${
+                  className={`p-2 rounded-lg max-w-[80%] text-sm whitespace-pre-line ${
                     m.role === "user"
                       ? "bg-purple-100 text-purple-900"
                       : "bg-white border text-gray-900"
