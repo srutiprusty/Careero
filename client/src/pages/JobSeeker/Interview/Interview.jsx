@@ -233,7 +233,7 @@ const Interview = () => {
       ); */
       setIsAISpeaking(true);
       await speakText(
-        `Interview completed. Score ${sum.overallScore} out of 10`
+        `Interview completed. Score ${sum.overallScore} out of 10`,
       );
       setIsAISpeaking(false);
       // prevent further interactions
@@ -493,7 +493,7 @@ box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);  /* white border at 40% op
                   </div>
 
                   {/* Question Text */}
-                  <div className="bg-white backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 mb-4 sm:mb-5 z-50">
+                  <div className=" backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 mb-4 sm:mb-5 z-50">
                     <p className="text-base sm:text-lg leading-relaxed">
                       {q.text}
                     </p>
@@ -604,7 +604,7 @@ box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);  /* white border at 40% op
                               {answerObj.improvements.map(
                                 (improvement, idx) => (
                                   <li key={idx}>{improvement}</li>
-                                )
+                                ),
                               )}
                             </ul>
                           </div>

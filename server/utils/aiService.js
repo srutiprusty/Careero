@@ -86,10 +86,78 @@ export async function evaluateAnswer(question, answer) {
 }
  */
 
-import OpenAI from "openai";
+/* import OpenAI from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
 export const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+}); */
+// utils/aiService.js
+/* 
+import { GoogleGenAI } from "@google/genai";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
+
+export async function callGeminiJSON(prompt) {
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+      },
+    });
+
+    const text = response.text;
+
+    if (!text) {
+      throw new Error("Gemini returned an empty response");
+    }
+
+    return JSON.parse(text);
+  } catch (error) {
+    console.error("Gemini API Error:", error);
+    throw error;
+  }
+}
+ */
+
+import { GoogleGenAI } from "@google/genai";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
+});
+
+export async function callGeminiJSON(prompt) {
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+      },
+    });
+
+    const text = response.text;
+
+    console.log("Gemini raw response:", text);
+
+    if (!text) {
+      throw new Error("Gemini returned an empty response");
+    }
+
+    return JSON.parse(text);
+  } catch (error) {
+    console.error("Gemini API Error:", error);
+    throw error;
+  }
+}

@@ -74,9 +74,10 @@ export const getSummary = (req, res) => {
 
 // controllers/interviewController.js
 import Interview from "../models/interview.model.js";
-import { openai } from "../utils/aiService.js";
+import { callGeminiJSON } from "../utils/aiService.js";
+/*import { openai } from "../utils/aiService.js";
 
-async function callOpenAIJSON(prompt, schemaDescription) {
+/* async function callOpenAIJSON(prompt, schemaDescription) {
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     response_format: { type: "json_object" },
@@ -91,21 +92,68 @@ async function callOpenAIJSON(prompt, schemaDescription) {
     ],
   });
   return JSON.parse(completion.choices[0].message.content);
-}
+} */
 
 export const startInterview = async (req, res) => {
   try {
     const { role, level } = req.body;
 
-    const json = await callOpenAIJSON(
-      `Generate one interview questions for job role "${role}" at "${level}" level.`,
-      `The JSON must be: { "questions": [ { "text": "..." } ] }`
-    );
+    if (!role) {
+      return res.status(400).json({
+        error: "Role is required",
+      });
+    }
+
+    const prompt = `
+You are a professional technical interviewer.
+
+Generate ONE interview question for:
+
+Job Role: ${role}
+Experience Level: ${level || "intermediate"}
+
+The question must:
+- Be relevant to the job role
+- Match the experience level
+- Test technical knowledge or practical understanding
+- Be clear and specific
+- Not include the answer
+
+IMPORTANT:
+Return ONLY valid JSON.
+Do not return markdown.
+Do not return explanations.
+
+Use exactly this JSON structure:
+
+{
+  "questions": [
+    {
+      "text": "Your interview question here"
+    }
+  ]
+}
+`;
+
+    const json = await callGeminiJSON(prompt);
+
+    console.log("Gemini response:", JSON.stringify(json, null, 2));
+
+    if (
+      !json ||
+      !Array.isArray(json.questions) ||
+      json.questions.length === 0
+    ) {
+      return res.status(500).json({
+        error: "Gemini did not return valid interview questions",
+        geminiResponse: json,
+      });
+    }
 
     const interview = await Interview.create({
       role,
-      level,
-      questions: json.questions || [],
+      level: level || "intermediate",
+      questions: json.questions,
       answers: [],
     });
 
@@ -114,8 +162,12 @@ export const startInterview = async (req, res) => {
       questions: interview.questions,
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to start interview" });
+    console.error("Start interview error:", err);
+
+    res.status(500).json({
+      error: "Failed to start interview",
+      details: err.message,
+    });
   }
 };
 
@@ -155,9 +207,9 @@ Return JSON with:
 }
 `;
 
-    const json = await callOpenAIJSON(
+    const json = await callGeminiJSON(
       prompt,
-      "The JSON structure is exactly as described in the prompt."
+      "The JSON structure is exactly as described in the prompt.",
     );
 
     const answerDoc = {
@@ -194,9 +246,9 @@ export const getNextQuestion = async (req, res) => {
     if (!interview)
       return res.status(404).json({ error: "Interview not found" });
 
-    const json = await callOpenAIJSON(
+    const json = await callGeminiJSON(
       `Generate another interview question for job role "${interview.role}" at "${interview.level}" level.`,
-      `The JSON must be: { "question": { "text": "..." } }`
+      `The JSON must be: { "question": { "text": "..." } }`,
     );
 
     interview.questions.push(json.question);
@@ -217,7 +269,7 @@ export const getSummary = async (req, res) => {
       return res.status(404).json({ error: "Interview not found" });
 
     const answers = interview.answers.sort(
-      (a, b) => a.questionIndex - b.questionIndex
+      (a, b) => a.questionIndex - b.questionIndex,
     );
 
     const prompt = `
@@ -233,7 +285,7 @@ ${answers
       `Q${a.questionIndex + 1}: ${a.questionText}
 Answer: ${a.answerText}
 Score: ${a.score}/${a.maxScore}
-`
+`,
   )
   .join("\n")}
 
@@ -247,9 +299,9 @@ Return JSON:
 }
 `;
 
-    const json = await callOpenAIJSON(
+    const json = await callGeminiJSON(
       prompt,
-      "The JSON structure is exactly as described in the prompt."
+      "The JSON structure is exactly as described in the prompt.",
     );
 
     res.json(json);
@@ -270,7 +322,7 @@ export const finishInterview = async (req, res) => {
     await interview.save();
 
     const answers = interview.answers.sort(
-      (a, b) => a.questionIndex - b.questionIndex
+      (a, b) => a.questionIndex - b.questionIndex,
     );
 
     const prompt = `
@@ -286,7 +338,7 @@ ${answers
       `Q${a.questionIndex + 1}: ${a.questionText}
 Answer: ${a.answerText}
 Score: ${a.score}/${a.maxScore}
-`
+`,
   )
   .join("\n")}
 
@@ -300,9 +352,9 @@ Return JSON:
 }
 `;
 
-    const json = await callOpenAIJSON(
+    const json = await callGeminiJSON(
       prompt,
-      "The JSON structure is exactly as described in the prompt."
+      "The JSON structure is exactly as described in the prompt.",
     );
 
     res.json(json);
